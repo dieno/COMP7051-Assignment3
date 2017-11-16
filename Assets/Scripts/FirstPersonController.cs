@@ -23,7 +23,7 @@ public class FirstPersonController : MonoBehaviour {
         camera = Camera.main;
         originalPos = transform.position;
         originalrot = transform.rotation.eulerAngles;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 	
 	// Update is called once per frame

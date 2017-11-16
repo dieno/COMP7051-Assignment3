@@ -13,7 +13,7 @@ public class MazeManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //Instantiate(Resources.Load("Prefabs/PreBuiltMaze", typeof(GameObject)), new Vector3(0f,1.5f,0f), new Quaternion(0f,0f,0f,0f));
-        Instantiate(Resources.Load("Prefabs/PreBuiltMaze", typeof(GameObject)));
+        //Instantiate(Resources.Load("Prefabs/PreBuiltMaze", typeof(GameObject)));
         GameObject enemy = Instantiate(Resources.Load("Models/Zombunny/Enemy", typeof(GameObject)), end.transform.position, new Quaternion(0f, 0f, 0f, 0f)) as GameObject;
 
         ec = enemy.GetComponent<EnemyController>();

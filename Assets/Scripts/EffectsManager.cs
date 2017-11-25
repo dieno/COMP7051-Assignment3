@@ -8,6 +8,7 @@ public class EffectsManager : MonoBehaviour {
     private Material daySkybox;
     private bool nightFog;
     private bool night;
+    public AudioManager audioManager;
 	// Use this for initialization
 	void Start () {
         Shader.SetGlobalFloat("_AmbientLighIntensity", 1.0f);
@@ -16,6 +17,7 @@ public class EffectsManager : MonoBehaviour {
         night = false;
         RenderSettings.fog = false;
         RenderSettings.fogColor = new Color(0.9f, 0.9f, 0.9f, 1.0f);
+        audioManager = audioManager.GetComponent<AudioManager>();
     }
 
     void OnApplicationQuit()
@@ -36,6 +38,7 @@ public class EffectsManager : MonoBehaviour {
             RenderSettings.skybox = daySkybox;
             nightFog = false;
             night = false;
+            audioManager.SwitchTrack();
         }
         else if ((Input.GetKeyDown(KeyCode.Q) ||Input.GetButtonDown("Fire2")) && !night)
         {
@@ -45,6 +48,7 @@ public class EffectsManager : MonoBehaviour {
             RenderSettings.skybox = nightSkybox;
             nightFog = true;
             night = true;
+            audioManager.SwitchTrack();
         }
 
 
@@ -55,12 +59,13 @@ public class EffectsManager : MonoBehaviour {
             if(fog)
             {
                 RenderSettings.fog = false;
+                audioManager.SwitchVolume();
                 
             }
             else
             {
                 RenderSettings.fog = true;
-                
+                audioManager.SwitchVolume();
             }
         }
 
